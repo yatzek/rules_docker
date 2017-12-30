@@ -38,26 +38,31 @@ def repositories():
   if "puller" not in excludes:
     native.http_file(
       name = "puller",
-      url = ("https://storage.googleapis.com/containerregistry-releases/" +
-             CONTAINERREGISTRY_RELEASE + "/puller.par"),
-      sha256 = "552c682be9a386de1f0e06b61b785a7de3d174c397a08ced64c14321146b9ad4",
+#      url = ("https://storage.googleapis.com/containerregistry-releases/" +
+#             CONTAINERREGISTRY_RELEASE + "/puller.par"),
+      url = "https://github.com/yatzek/containerregistry/releases/download/v0.0.24/puller.par",
+#      sha256 = "552c682be9a386de1f0e06b61b785a7de3d174c397a08ced64c14321146b9ad4",
+      sha256 = "bdf8de94c372f1bb6dbe7dae3055d017372e5f7c1421d2d3614c617932f7ca47",
       executable = True,
     )
 
   if "importer" not in excludes:
     native.http_file(
       name = "importer",
-      url = ("https://storage.googleapis.com/containerregistry-releases/" +
-             CONTAINERREGISTRY_RELEASE + "/importer.par"),
-      sha256 = "2774927203a56b962326bded4fbfb6f23ede3623331649223e7efe9d9f30c9cb",
+#      url = ("https://storage.googleapis.com/containerregistry-releases/" +
+#             CONTAINERREGISTRY_RELEASE + "/importer.par"),
+      url = "https://github.com/yatzek/containerregistry/releases/download/v0.0.24/importer.par",
+#      sha256 = "2774927203a56b962326bded4fbfb6f23ede3623331649223e7efe9d9f30c9cb",
+      sha256 = "5593d7b0e7e5be458b80ba36c01d9f12fd2b136e2b028d1a6661235c07a30395",
       executable = True,
     )
 
   if "containerregistry" not in excludes:
     native.git_repository(
       name = "containerregistry",
-      remote = "https://github.com/google/containerregistry.git",
-      tag = CONTAINERREGISTRY_RELEASE,
+      remote = "https://github.com/yatzek/containerregistry.git",
+#      tag = CONTAINERREGISTRY_RELEASE,
+      tag = "v0.0.24",
     )
 
   # TODO(mattmoor): Remove all of this (copied from google/containerregistry)
